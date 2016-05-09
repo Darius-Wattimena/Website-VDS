@@ -13,7 +13,8 @@ namespace NederlandsWebsiteVDS.Controllers
         // GET: Onderwerp
         public ActionResult Index()
         {
-            return View(db.Onderwerp.ToList());
+            var onderwerp = db.Onderwerp.Include(o => o.Categorie);
+            return View(onderwerp.ToList());
         }
 
         // GET: Onderwerp/Details/5
@@ -34,6 +35,7 @@ namespace NederlandsWebsiteVDS.Controllers
         // GET: Onderwerp/Create
         public ActionResult Create()
         {
+            ViewBag.CategorieId = new SelectList(db.Categorie, "Id", "Naam");
             return View();
         }
 
@@ -42,7 +44,7 @@ namespace NederlandsWebsiteVDS.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Naam")] Onderwerp onderwerp)
+        public ActionResult Create([Bind(Include = "Id,Naam,CategorieId")] Onderwerp onderwerp)
         {
             if (ModelState.IsValid)
             {
@@ -51,6 +53,7 @@ namespace NederlandsWebsiteVDS.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.CategorieId = new SelectList(db.Categorie, "Id", "Naam", onderwerp.CategorieId);
             return View(onderwerp);
         }
 
@@ -66,6 +69,7 @@ namespace NederlandsWebsiteVDS.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.CategorieId = new SelectList(db.Categorie, "Id", "Naam", onderwerp.CategorieId);
             return View(onderwerp);
         }
 
@@ -74,7 +78,7 @@ namespace NederlandsWebsiteVDS.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Naam")] Onderwerp onderwerp)
+        public ActionResult Edit([Bind(Include = "Id,Naam,CategorieId")] Onderwerp onderwerp)
         {
             if (ModelState.IsValid)
             {
@@ -82,6 +86,7 @@ namespace NederlandsWebsiteVDS.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.CategorieId = new SelectList(db.Categorie, "Id", "Naam", onderwerp.CategorieId);
             return View(onderwerp);
         }
 

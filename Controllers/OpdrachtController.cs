@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using NederlandsWebsiteVDS.Models;
@@ -40,13 +36,11 @@ namespace NederlandsWebsiteVDS.Controllers
         // GET: Opdracht/Create
         public ActionResult Create()
         {
-            ViewBag.OnderwerpId = new SelectList(db.Onderwerp, "Id", "Naam");
+            ViewBag.Onderwerp = new SelectList(db.Onderwerp, "Id", "Naam");
             return View();
         }
 
         // POST: Opdracht/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Context,OnderwerpId")] Opdracht opdracht)
