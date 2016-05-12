@@ -1,0 +1,60 @@
+﻿@using NederlandsWebsiteVDS.Models
+@model Admin
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<body>
+
+<div id="tf-home">
+    <div class="overlay">
+        <div class="container">
+            <div class="content-heading text-center">
+                <h1>Gemakelijk nederlands leren</h1>
+                <p class="lead">Op deze website kan je uitleg, opdrachten en handige links over het vak nederlands</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="tf-intro">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <img src="Scripts/img/logo-w.png" class="intro-logo img-responsive">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="tf-services">
+    <div class="container">
+        <div class="section-header">
+            <h2><span class="highlight"><strong>Onderwerpen</strong></span></h2>
+            <h5><em>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</em></h5>
+            <div class="fancy"><span><img src="Scripts/img/favicon.ico" alt="..."></span></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="media">
+                    @foreach (var item in Model.CategorieVM)
+                    {
+                        <div class="media-body">
+                            <h4 class="media-heading">@Html.DisplayFor(modelItem => item.Naam)</h4>
+                            @foreach (var onderwerp in Model.OnderwerpVM)
+                            {
+                                if (item.Id == onderwerp.CategorieId)
+                                {
+                                    <p>
+                                        <a href="#">@Html.DisplayFor(modelItem => onderwerp.Naam)</a>
+                                    </p>
+                                }
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
