@@ -4,14 +4,12 @@
     ViewBag.Title = "Home Page";
 }
 
-<body>
-
 <div id="tf-home">
     <div class="overlay">
         <div class="container">
             <div class="content-heading text-center">
                 <h1>Gemakelijk nederlands leren</h1>
-                <p class="lead">Op deze website kan je uitleg, opdrachten en handige links over het vak nederlands</p>
+                <p class="lead">Op deze website kan je uitleg, opdrachten en handige links over het vak nederlands vinden</p>
             </div>
         </div>
     </div>
@@ -51,6 +49,30 @@
                                     </p>
                                 }
                             }
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="tf-about">
+    <div class="container">
+        <div class="section-header">
+            <h2><span class="highlight"><strong>Links</strong></span></h2>
+            <h5><em>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</em></h5>
+            <div class="fancy"><span><img src="Scripts/img/favicon.ico" alt="..."></span></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="media">
+                    @foreach (var link in Model.LinkVM)
+                    {
+                        <div class="media-body">
+                            <p>
+                                <a href="@Html.DisplayFor(linkUrl => link.Url)">@Html.DisplayFor(linkItem => link.Naam)</a>
+                            </p>
                         </div>
                     }
                 </div>

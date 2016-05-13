@@ -35,6 +35,7 @@ namespace NederlandsWebsiteVDS.Models
         public DbSet<Onderwerp> Onderwerp { get; set; }
         public DbSet<Opdracht> Opdracht { get; set; }
         public DbSet<Uitleg> Uitleg { get; set; }
+        public DbSet<Link> Link { get; set; } 
 
     }
 }

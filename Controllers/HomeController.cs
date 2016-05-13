@@ -18,6 +18,7 @@ namespace NederlandsWebsiteVDS.Controllers
             indexVM.OpdrachtVM = db.Opdracht.ToList();
             indexVM.GebruikerVM = db.Users.ToList();
             indexVM.CategorieVM = db.Categorie.ToList();
+            indexVM.LinkVM = db.Link.ToList();
             return View(indexVM);
         }
 
