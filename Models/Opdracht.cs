@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NederlandsWebsiteVDS.Models
@@ -8,9 +9,10 @@ namespace NederlandsWebsiteVDS.Models
         public int Id { get; set; }
 
         [Required]
-        public string Context { get; set; }
+        public string Naam { get; set; }
 
-        
+        [Required]
+        public string Context { get; set; }
 
         [Required]
         [ForeignKey("Onderwerp")]
@@ -22,5 +24,6 @@ namespace NederlandsWebsiteVDS.Models
 
         public virtual ApplicationUser User { get; set; }
         public virtual Onderwerp Onderwerp { get; set; }
+        public virtual ICollection<Vraag> VraagCollection { get; set; }
     }
 }

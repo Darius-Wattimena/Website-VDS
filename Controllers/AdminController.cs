@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
+using NederlandsWebsiteVDS.BL;
 using NederlandsWebsiteVDS.Models;
 
 namespace NederlandsWebsiteVDS.Controllers
@@ -8,16 +9,19 @@ namespace NederlandsWebsiteVDS.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         // GET: Admin
+        [MyAuthorize(Roles = "Admin")]
         public ActionResult Index()
         {
-            Admin adminVM = new Admin();
-            adminVM.UitlegVM = db.Uitleg.ToList();
-            adminVM.OnderwerpVM = db.Onderwerp.ToList();
-            adminVM.OpdrachtVM = db.Opdracht.ToList();
-            adminVM.GebruikerVM = db.Users.ToList();
-            adminVM.CategorieVM = db.Categorie.ToList();
-            adminVM.LinkVM = db.Link.ToList();
-            return View(adminVM);
+            var adminVm = new Admin
+            {
+                UitlegVM = db.Uitleg.ToList(),
+                OnderwerpVM = db.Onderwerp.ToList(),
+                OpdrachtVM = db.Opdracht.ToList(),
+                GebruikerVM = db.Users.ToList(),
+                CategorieVM = db.Categorie.ToList(),
+                LinkVM = db.Link.ToList()
+            };
+            return View(adminVm);
         }
     }
 }

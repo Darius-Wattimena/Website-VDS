@@ -1,0 +1,46 @@
+﻿@model NederlandsWebsiteVDS.Models.Onderwerp
+
+@{
+    ViewBag.Title = "Delete";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Delete</h2>
+            <h3>Are you sure you want to delete this?</h3>
+            <div>
+                <h4>Onderwerp</h4>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Categorie.Naam)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Categorie.Naam)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Naam)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Naam)
+                    </dd>
+
+                </dl>
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-actions no-color">
+                        <input type="submit" value="Delete" class="btn btn-default" /> |
+                        @Html.ActionLink("Terug naar het admin panel", "Index", "Admin")
+                    </div>
+                    <hr />
+                }
+            </div>
+        </div>
+    </div>
+</div>

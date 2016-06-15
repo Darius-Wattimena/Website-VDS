@@ -18,6 +18,8 @@ namespace NederlandsWebsiteVDS.Controllers
     public class AccountController : Controller
     {
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext db = new ApplicationDbContext();
+
 
         public AccountController()
         {
@@ -90,6 +92,7 @@ namespace NederlandsWebsiteVDS.Controllers
         {
             if (ModelState.IsValid)
             {
+                var userRol = !db.Users.Any() ? "Admin" : "User";
                 var user = new ApplicationUser()
                 {
                     UserName = model.Email, 
@@ -99,26 +102,29 @@ namespace NederlandsWebsiteVDS.Controllers
                     DataAdded = DateTime.Now, 
                     DateEdit = DateTime.Now
                 };
+
                 IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+
                 if (result.Succeeded)
                 {
-                    await SignInAsync(user, isPersistent: false);
-
-                    // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                    // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
+                    await SignInAsync(user, false);
+                    AddUserToRole(user.UserName, userRol);
                     return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
             }
 
-            // If we got this far, something failed, redisplay form
             return View(model);
         }
 
+        internal void AddUserToRole(string userName, string roleName)
+        {
+            var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+
+            var user = UserManager.FindByName(userName);
+            UserManager.AddToRole(user.Id, roleName);
+            db.SaveChanges();
+        }
         //
         // GET: /Account/ConfirmEmail
         [AllowAnonymous]
@@ -418,13 +424,6 @@ namespace NederlandsWebsiteVDS.Controllers
                     if (result.Succeeded)
                     {
                         await SignInAsync(user, isPersistent: false);
-                        
-                        // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                        // Send an email with this link
-                        // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                        // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                        // SendEmail(user.Email, callbackUrl, "Confirm your account", "Please confirm your account by clicking this link");
-                        
                         return RedirectToLocal(returnUrl);
                     }
                 }

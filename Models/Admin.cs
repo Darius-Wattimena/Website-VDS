@@ -9,6 +9,8 @@ namespace NederlandsWebsiteVDS.Models
         public List<Uitleg> UitlegVM { get; set; }
         public List<Opdracht> OpdrachtVM { get; set; }
         public List<Categorie> CategorieVM { get; set; }
-        public List<Link> LinkVM { get; set; } 
+        public List<Link> LinkVM { get; set; }
+        public List<Vraag> VraagVM { get; set; }
+        public List<Antwoord> AntwoordVM { get; set; } 
     }
 }

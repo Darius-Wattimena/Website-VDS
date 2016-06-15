@@ -1,0 +1,44 @@
+﻿@model NederlandsWebsiteVDS.Models.Admin
+
+@{
+    ViewBag.Title = "View";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-left">
+            <hr />
+            @if (Model.OpdrachtVM.Count != 0)
+            {
+                <h3>Opdrachten</h3>
+                <ul class="list-unstyled">
+                    @foreach (var item in Model.OpdrachtVM)
+                    {
+                        <li>
+                            <a href="@Url.Action("View", "Opdracht", new {opdracht = item.Id})">@Html.DisplayFor(modelItem => item.Naam)</a>
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <h3>Er zijn geen opdrachten bij dit onderwerp.</h3>
+            }
+            @if (Model.UitlegVM.Count != 0)
+            {
+                <h3>Uitleg</h3>
+                <ul class="list-unstyled">
+                    @foreach (var item in Model.UitlegVM)
+                    {
+                        <li>
+                            <a class="h5" href="@Url.Action("View", "Uitleg", new {uitleg = item.Id})">@Html.DisplayFor(modelItem => item.Naam)</a>
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <h3>Er is geen uitleg bij dit onderwerp.</h3>
+            }
+        </div>
+    </div>
+</div>

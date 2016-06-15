@@ -1,0 +1,14 @@
+﻿@model NederlandsWebsiteVDS.Models.Opdracht
+@{
+    ViewBag.Title = "View";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-left">
+            <hr/>
+            <h3>@Html.DisplayFor(model => model.Naam)</h3>
+            @Html.Raw(Model.Context)
+        </div>
+    </div>
+</div>
+

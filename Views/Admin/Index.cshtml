@@ -1,0 +1,138 @@
+﻿@model NederlandsWebsiteVDS.Models.Admin
+@{
+    ViewBag.Title = "Index";
+}   
+<style>
+    .table-fixed {
+         table-layout: fixed;
+    }
+    .table-fixed td {
+         word-wrap: break-word;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <hr />
+            <h1>Admin panel</h1>
+            <h2>Alle Gebruikers</h2>
+            <table class="table">
+                <tr>
+                    <th>ID</th>
+                    <th>Email</th>
+                    <th>Voornaam</th>
+                    <th>Achternaam</th>
+                    <th>Aanmaak datum</th>
+                    <th>Laatst aangepast</th>
+                </tr>
+
+                @foreach (var item in Model.GebruikerVM)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Voornaam)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Achternaam)</td>
+                        <td>@Html.DisplayFor(modelItem => item.DataAdded)</td>
+                        <td>@Html.DisplayFor(modelItem => item.DateEdit)</td>
+                    </tr>
+                }
+            </table>
+            <div class="col-md-6">
+                <h2>Alle Categorien</h2>
+                <p>@Html.ActionLink("Nieuwe categorie aanmaken", "Create", "Onderwerp")</p>
+                <table class="table">
+                    <tr>
+                        <th class="col-md-4">Onderwerp</th>
+                        <th class="col-md-2"></th>
+                    </tr>
+                    @foreach (var item in Model.OnderwerpVM)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.Categorie.Naam)</td>
+                            <td>@Html.ActionLink("Aanpassen", "Edit", "Categorie", new { id = item.CategorieId }, null) | @Html.ActionLink("Verwijderen", "Delete", "Categorie", new { id = item.CategorieId }, null)</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+
+            <div class="col-md-6">
+                <h2>Alle Onderwerpen</h2>
+                <p>@Html.ActionLink("Nieuwe onderwerp aanmaken", "Create", "Onderwerp")</p>
+                <table class="table">
+                    <tr>
+                        <th class="col-md-4">Onderwerp</th>
+                        <th class="col-md-2"></th>
+                    </tr>
+                    @foreach (var item in Model.OnderwerpVM)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.Naam)</td>
+                            <td>@Html.ActionLink("Aanpassen", "Edit", "Onderwerp", new { id = item.Id }, null) | @Html.ActionLink("Verwijderen", "Delete", "Onderwerp", new { id = item.Id }, null)</td>
+
+                        </tr>
+                    }
+                </table>
+            </div>
+
+            <h2>Alle Links</h2>
+            <p>@Html.ActionLink("Nieuwe link aanmaken", "Create", "Link")</p>
+            <table class="table">
+                <tr>
+                    <th class="col-md-5">Link Naam</th>
+                    <th class="col-md-5">Url</th>
+                    <th class="col-md-2"></th>
+                </tr>
+                @foreach (var item in Model.LinkVM)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Naam)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Url)</td>
+                        <td>@Html.ActionLink("Aanpassen", "Edit", "Link", new { id = item.Id }, null) | @Html.ActionLink("Verwijderen", "Delete", "Link", new { id = item.Id }, null)</td>
+                    </tr>
+                }
+            </table>
+
+            <h2>Alle Opdrachten</h2>
+            <p>@Html.ActionLink("Nieuwe opdracht aanmaken", "Create", "Opdracht")</p>
+            <table class="table table-fixed">
+                <tr>
+                    <th class="col-md-2">Onderwerp</th>
+                    <th class="col-md-2">Naam</th>
+                    <th class="col-md-6">Context</th>
+                    <th class="col-md-2"></th>
+                </tr>
+                @foreach (var item in Model.OpdrachtVM)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Onderwerp.Naam)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Naam)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Context)</td>
+                        <td>@Html.ActionLink("Aanpassen", "Edit", "Opdracht", new {id = item.Id}, null) | @Html.ActionLink("Verwijderen", "Delete", "Opdracht", new { id = item.Id }, null)</td>
+                    </tr>
+                }
+            </table>
+
+            <h2>Alle Uitleg</h2>
+            <p>@Html.ActionLink("Nieuwe uitleg aanmaken", "Create", "Uitleg")</p>
+            <table class="table table-fixed">
+                <tr>
+                    <th class="col-md-2">Onderwerp</th>
+                    <th class="col-md-2">Naam</th>
+                    <th class="col-md-6">Context</th>
+                    <th class="col-md-2"></th>
+                </tr>
+                @foreach (var item in Model.UitlegVM)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Onderwerp.Naam)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Naam)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Context)</td>
+                        <td>@Html.ActionLink("Aanpassen", "Edit", "Uitleg", new {id = item.Id}, null) | @Html.ActionLink("Verwijderen", "Delete", "Uitleg", new {id = item.Id}, null)</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

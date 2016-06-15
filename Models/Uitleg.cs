@@ -1,11 +1,15 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Web.Mvc;
 
 namespace NederlandsWebsiteVDS.Models
 {
     public class Uitleg
     {
         public int Id { get; set; }
+
+        [Required]
+        public string Naam { get; set; }
 
         [Required]
         public string Context { get; set; }
