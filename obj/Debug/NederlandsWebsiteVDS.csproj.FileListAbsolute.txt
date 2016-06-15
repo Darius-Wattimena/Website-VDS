@@ -53,3 +53,8 @@ c:\users\darius\documents\visual studio 2013\Projects\NederlandsWebsiteVDS\Neder
 c:\users\darius\documents\visual studio 2013\Projects\NederlandsWebsiteVDS\NederlandsWebsiteVDS\obj\Debug\NederlandsWebsiteVDS.dll
 c:\users\darius\documents\visual studio 2013\Projects\NederlandsWebsiteVDS\NederlandsWebsiteVDS\obj\Debug\NederlandsWebsiteVDS.pdb
 C:\Users\Darius\documents\visual studio 2013\Projects\NederlandsWebsiteVDS\NederlandsWebsiteVDS\obj\Debug\NederlandsWebsiteVDS.csprojResolveAssemblyReference.cache
+C:\Users\dariu\Documents\Visual Studio 2015\Projects\WebsiteVDS\bin\NederlandsWebsiteVDS.dll.config
+C:\Users\dariu\Documents\Visual Studio 2015\Projects\WebsiteVDS\bin\NederlandsWebsiteVDS.dll
+C:\Users\dariu\Documents\Visual Studio 2015\Projects\WebsiteVDS\bin\NederlandsWebsiteVDS.pdb
+C:\Users\dariu\Documents\Visual Studio 2015\Projects\WebsiteVDS\obj\Debug\NederlandsWebsiteVDS.dll
+C:\Users\dariu\Documents\Visual Studio 2015\Projects\WebsiteVDS\obj\Debug\NederlandsWebsiteVDS.pdb
