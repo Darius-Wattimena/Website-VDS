@@ -58,3 +58,9 @@ C:\Users\dariu\Documents\Visual Studio 2015\Projects\WebsiteVDS\bin\NederlandsWe
 C:\Users\dariu\Documents\Visual Studio 2015\Projects\WebsiteVDS\bin\NederlandsWebsiteVDS.pdb
 C:\Users\dariu\Documents\Visual Studio 2015\Projects\WebsiteVDS\obj\Debug\NederlandsWebsiteVDS.dll
 C:\Users\dariu\Documents\Visual Studio 2015\Projects\WebsiteVDS\obj\Debug\NederlandsWebsiteVDS.pdb
+C:\Users\dariu\Documents\Visual Studio 2015\Projects\WebsiteVDS\obj\Debug\NederlandsWebsiteVDS.csprojResolveAssemblyReference.cache
+C:\Users\dariu\Documents\Visual Studio 2015\Projects\WebsiteVDS\bin\EntityFramework.dll
+C:\Users\dariu\Documents\Visual Studio 2015\Projects\WebsiteVDS\bin\EntityFramework.SqlServer.dll
+C:\Users\dariu\Documents\Visual Studio 2015\Projects\WebsiteVDS\bin\EntityFramework.xml
+C:\Users\dariu\Documents\Visual Studio 2015\Projects\WebsiteVDS\bin\EntityFramework.SqlServer.xml
+C:\Users\dariu\Documents\Visual Studio 2015\Projects\WebsiteVDS\bin\BeginCollectionItem.dll

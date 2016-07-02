@@ -1,0 +1,10 @@
+﻿@using NederlandsWebsiteVDS.Models;
+@model Antwoord
+    @using (Html.BeginCollectionItem("antwoorden"))
+    {
+        <div class="form-group">
+            @Html.LabelFor(model => model.Context)
+            @Html.EditorFor(model => model.Context, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    }
+    

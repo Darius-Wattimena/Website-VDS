@@ -18,5 +18,15 @@ namespace NederlandsWebsiteVDS.Controllers
             };
             return PartialView("~/Views/Shared/_Navbar.cshtml", model);
         }
+
+        public PartialViewResult _Footer()
+        {
+            return PartialView("~/Views/Shared/_Footer.cshtml");
+        }
+
+        public PartialViewResult _Header()
+        {
+            return PartialView("~/Views/Shared/_Header.cshtml");
+        }
     }
 }

@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 
 namespace NederlandsWebsiteVDS.Models
 {
-    public class Admin
+    public class Admin : IEnumerable
     {
         public List<ApplicationUser> GebruikerVM { get; set; }
         public List<Onderwerp> OnderwerpVM { get; set; }
@@ -11,6 +12,10 @@ namespace NederlandsWebsiteVDS.Models
         public List<Categorie> CategorieVM { get; set; }
         public List<Link> LinkVM { get; set; }
         public List<Vraag> VraagVM { get; set; }
-        public List<Antwoord> AntwoordVM { get; set; } 
+        public List<Antwoord> AntwoordVM { get; set; }
+        public IEnumerator GetEnumerator()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

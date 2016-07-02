@@ -39,19 +39,21 @@
                     </tr>
                 }
             </table>
+        </div>
+        <div class="col-md-12">
             <div class="col-md-6">
                 <h2>Alle Categorien</h2>
-                <p>@Html.ActionLink("Nieuwe categorie aanmaken", "Create", "Onderwerp")</p>
+                <p>@Html.ActionLink("Nieuwe categorie aanmaken", "Create", "Categorie")</p>
                 <table class="table">
                     <tr>
-                        <th class="col-md-4">Onderwerp</th>
+                        <th class="col-md-4">Categorie</th>
                         <th class="col-md-2"></th>
                     </tr>
-                    @foreach (var item in Model.OnderwerpVM)
+                    @foreach (var item in Model.CategorieVM)
                     {
                         <tr>
-                            <td>@Html.DisplayFor(modelItem => item.Categorie.Naam)</td>
-                            <td>@Html.ActionLink("Aanpassen", "Edit", "Categorie", new { id = item.CategorieId }, null) | @Html.ActionLink("Verwijderen", "Delete", "Categorie", new { id = item.CategorieId }, null)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Naam)</td>
+                            <td>@Html.ActionLink("Aanpassen", "Edit", "Categorie", new { id = item.Id }, null) | @Html.ActionLink("Verwijderen", "Delete", "Categorie", new { id = item.Id }, null)</td>
                         </tr>
                     }
                 </table>
@@ -75,7 +77,8 @@
                     }
                 </table>
             </div>
-
+        </div>
+        <div class="col-md-12">
             <h2>Alle Links</h2>
             <p>@Html.ActionLink("Nieuwe link aanmaken", "Create", "Link")</p>
             <table class="table">
@@ -109,7 +112,7 @@
                         <td>@Html.DisplayFor(modelItem => item.Onderwerp.Naam)</td>
                         <td>@Html.DisplayFor(modelItem => item.Naam)</td>
                         <td>@Html.DisplayFor(modelItem => item.Context)</td>
-                        <td>@Html.ActionLink("Aanpassen", "Edit", "Opdracht", new {id = item.Id}, null) | @Html.ActionLink("Verwijderen", "Delete", "Opdracht", new { id = item.Id }, null)</td>
+                        <td>@Html.ActionLink("Aanpassen", "Edit", "Opdracht", new { id = item.Id }, null) | @Html.ActionLink("Verwijderen", "Delete", "Opdracht", new { id = item.Id }, null)</td>
                     </tr>
                 }
             </table>
@@ -130,6 +133,23 @@
                         <td>@Html.DisplayFor(modelItem => item.Naam)</td>
                         <td>@Html.DisplayFor(modelItem => item.Context)</td>
                         <td>@Html.ActionLink("Aanpassen", "Edit", "Uitleg", new {id = item.Id}, null) | @Html.ActionLink("Verwijderen", "Delete", "Uitleg", new {id = item.Id}, null)</td>
+                    </tr>
+                }
+            </table>
+            <h2>Alle Uitleg</h2>
+            <p>@Html.ActionLink("Nieuwe uitleg aanmaken", "Create", "Uitleg")</p>
+            <table class="table table-fixed">
+                <tr>
+                    <th class="col-md-2">Onderwerp</th>
+                    <th class="col-md-2">Vraag</th>
+                    <th class="col-md-2"></th>
+                </tr>
+                @foreach (var item in Model.VraagVM)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Opdracht.Naam)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Naam)</td>
+                        <td>@Html.ActionLink("Aanpassen", "Edit", "Uitleg", new { id = item.Id }, null) | @Html.ActionLink("Verwijderen", "Delete", "Uitleg", new { id = item.Id }, null)</td>
                     </tr>
                 }
             </table>

@@ -1,0 +1,36 @@
+﻿@using NederlandsWebsiteVDS.Models;
+@model Vraag
+@{
+    var vraagId = (int) ViewData["id"];
+}
+<div class="vraagRow">
+    <div class="col-md-8">
+        @using (Html.BeginCollectionItem("vragen"))
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.Naam)
+                @Html.EditorFor(model => model.Naam, new {htmlAttributes = new {@class = "form-control"}})
+            </div>
+            <div id="antwoordenRows">
+                @foreach (var antwoord in Model.AntwoordCollection)
+                {
+                    <div class="antwoordRow col-md-12">
+                        <div class="col-md-6">
+                            @{
+                                Html.RenderPartial("CreateAntwoord", antwoord, new ViewDataDictionary {{"id", vraagId}});
+                            }
+                        </div>
+                        <div class="col-md-6">
+                            <input type="button" value="Delete Antwoord" id="changePage" onclick="location.href = '@Url.Action("DeleteAntwoord", new {id = vraagId, antwoordId = antwoord.Id})'" class="btn btn-default btn-danger"/>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+
+    </div>
+    <div class="col-md-4">
+        <input type="button" value="Nieuwe Antwoord" id="changePage" onclick="location.href = '@Url.Action("CreateAntwoord", new {id = vraagId})'" class="btn btn-default btn-success" />
+        <input type="button" value="Delete Vraag" id="changePage" onclick="location.href = '@Url.Action("DeleteVraag", new {id = vraagId})'" class="btn btn-default btn-danger" />
+    </div>
+</div>

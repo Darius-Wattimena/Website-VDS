@@ -8,10 +8,11 @@ namespace NederlandsWebsiteVDS.Controllers
     public class AdminController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-        // GET: Admin
-        [MyAuthorize(Roles = "Admin")]
+
+        [RoleCheck(Roles = "Admin")]
         public ActionResult Index()
         {
+            Session["DataList"] = null;
             var adminVm = new Admin
             {
                 UitlegVM = db.Uitleg.ToList(),
@@ -19,7 +20,9 @@ namespace NederlandsWebsiteVDS.Controllers
                 OpdrachtVM = db.Opdracht.ToList(),
                 GebruikerVM = db.Users.ToList(),
                 CategorieVM = db.Categorie.ToList(),
-                LinkVM = db.Link.ToList()
+                LinkVM = db.Link.ToList(),
+                VraagVM = db.Vraag.ToList(),
+                AntwoordVM = db.Antwoord.ToList()
             };
             return View(adminVm);
         }

@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 
 namespace NederlandsWebsiteVDS.BL
 {
-    public class MyAuthorize : AuthorizeAttribute
+    public class RoleCheck : AuthorizeAttribute
     {
         protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
         {

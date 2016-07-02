@@ -10,7 +10,7 @@ namespace NederlandsWebsiteVDS.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        [MyAuthorize(Roles = "Admin")]
+        [RoleCheck(Roles = "Admin")]
         public ActionResult Create()
         {
             ViewBag.OnderwerpId = new SelectList(db.Onderwerp, "Id", "Naam");
@@ -32,7 +32,7 @@ namespace NederlandsWebsiteVDS.Controllers
             return View(opdracht);
         }
 
-        [MyAuthorize(Roles = "Admin")]
+        [RoleCheck(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -63,7 +63,7 @@ namespace NederlandsWebsiteVDS.Controllers
             return View(opdracht);
         }
 
-        [MyAuthorize(Roles = "Admin")]
+        [RoleCheck(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
