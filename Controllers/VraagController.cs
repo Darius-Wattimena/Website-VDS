@@ -25,7 +25,7 @@ namespace NederlandsWebsiteVDS.Controllers
             }
 
             DataList.Add(cl.CreateListVraag(1));
-            DataList.Add(cl.CreateListVraag(2));
+            DataList.Add(cl.CreateListVraag(2));//test
             Session["DataList"] = DataList;
 
             return View(Session["DataList"]);
