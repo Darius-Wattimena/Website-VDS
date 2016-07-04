@@ -64,3 +64,12 @@ C:\Users\dariu\Documents\Visual Studio 2015\Projects\WebsiteVDS\bin\EntityFramew
 C:\Users\dariu\Documents\Visual Studio 2015\Projects\WebsiteVDS\bin\EntityFramework.xml
 C:\Users\dariu\Documents\Visual Studio 2015\Projects\WebsiteVDS\bin\EntityFramework.SqlServer.xml
 C:\Users\dariu\Documents\Visual Studio 2015\Projects\WebsiteVDS\bin\BeginCollectionItem.dll
+C:\Users\DariusPC\Documents\Visual Studio 2015\Projects\Website-VDS\bin\NederlandsWebsiteVDS.dll.config
+C:\Users\DariusPC\Documents\Visual Studio 2015\Projects\Website-VDS\bin\NederlandsWebsiteVDS.dll
+C:\Users\DariusPC\Documents\Visual Studio 2015\Projects\Website-VDS\bin\NederlandsWebsiteVDS.pdb
+C:\Users\DariusPC\Documents\Visual Studio 2015\Projects\Website-VDS\bin\EntityFramework.xml
+C:\Users\DariusPC\Documents\Visual Studio 2015\Projects\Website-VDS\bin\EntityFramework.SqlServer.xml
+C:\Users\DariusPC\Documents\Visual Studio 2015\Projects\Website-VDS\obj\Debug\NederlandsWebsiteVDS.csprojResolveAssemblyReference.cache
+C:\Users\DariusPC\Documents\Visual Studio 2015\Projects\Website-VDS\obj\Debug\NederlandsWebsiteVDS.dll
+C:\Users\DariusPC\Documents\Visual Studio 2015\Projects\Website-VDS\obj\Debug\NederlandsWebsiteVDS.pdb
+C:\Users\DariusPC\Documents\Visual Studio 2015\Projects\Website-VDS\bin\BeginCollectionItem.dll

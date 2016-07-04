@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
-using Microsoft.Ajax.Utilities;
 using NederlandsWebsiteVDS.Models;
 using NederlandsWebsiteVDS.BL;
 
@@ -14,6 +11,7 @@ namespace NederlandsWebsiteVDS.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
         public List<Vraag> DataList = new List<Vraag>();
         private CreateList cl = new CreateList();
+        private Vragen vragenBL = new Vragen();
 
 
         public ActionResult Create(int id)
@@ -23,10 +21,12 @@ namespace NederlandsWebsiteVDS.Controllers
             {
                 return HttpNotFound();
             }
-
-            DataList.Add(cl.CreateListVraag(1));
-            DataList.Add(cl.CreateListVraag(2));//test
-            Session["DataList"] = DataList;
+            if (Session["Datalist"] == null)
+            {
+                DataList.Add(cl.CreateListVraag(1));
+                DataList.Add(cl.CreateListVraag(2));
+                Session["DataList"] = DataList;
+            }
 
             return View(Session["DataList"]);
         }
@@ -34,14 +34,9 @@ namespace NederlandsWebsiteVDS.Controllers
         [HttpPost]
         public ActionResult Create(int id, IEnumerable<Vraag> vragen)
         {
-            var vragenlist = new List<Vraag>();
             foreach (var item in vragen)
             {
-                Vraag vraag = new Vraag();
-                vraag.Naam = item.Naam;
-                vraag.OpdrachtId = id;
-                vragenlist.Add(vraag);
-                db.Vraag.Add(vraag);
+                vragenBL.AddVraag(id, item);
             }
             db.SaveChanges();
             return RedirectToAction("Index", "Admin");
